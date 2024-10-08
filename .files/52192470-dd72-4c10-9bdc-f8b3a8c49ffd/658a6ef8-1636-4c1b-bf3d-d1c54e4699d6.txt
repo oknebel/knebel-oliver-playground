@@ -1,0 +1,971 @@
+ Are there computational and statistical constraints?
+
+CONTEXT:
+ Mu, S. Kadavath, F. Wang, E. Dorundo, R. Desai, T. Zhu,
+S. Parajuli, M. Guo, et al. The many faces of robustness: A critical analysis of out-of-
+distribution generalization. In Proceedings of the IEEE/CVF International Conference on
+Computer Vision, pages 8340–8349, 2021.
+12
+[35] D. Hendrycks, K. Zhao, S. Basart, J. Steinhardt, and D. Song. Natural adversarial examples.
+In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition,
+pages 15262–15271, 2021.
+[36] S. Hooker, A. Courville, G. Clark, Y. Dauphin, and A. Frome. What do compressed deep
+neural networks forget? arXiv preprint arXiv:1911.05248, 2019.
+[37] S. Hooker, N. Moorosi, G. Clark, S. Bengio, and E. Denton. Characterising bias in compressed
+models. arXiv preprint arXiv:2010.03058, 2020.
+[38] H. Hotelling\nLab/robustness.
+[25] A. Gholami, S. Kim, Z. Dong, Z. Yao, M. W. Mahoney, and K. Keutzer. A survey of
+quantization methods for efficient neural network inference. arXiv preprint arXiv:2103.13630,
+2021.
+[26] S. Gong, V. N. Boddeti, and A. K. Jain. On the intrinsic dimensionality of image representations.
+In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition,
+pages 3987–3996, 2019.
+[27] M. Gutmann and A. Hyvärinen. Noise-contrastive estimation: A new estimation principle for
+unnormalized statistical models. In Proceedings of the thirteenth international conference
+on artificial intelligence and statistics, pages 297–304. JMLR Workshop and Conference
+Proceedings, 2010.
+[28] M. G. Harris and C. D. Giachritsis. Coarse-grained information dominates fine-grained
+info\nMatryoshka Representation Learning
+Aditya Kusupati∗†⋄, Gantavya Bhatt∗†, Aniket Rege∗†,
+Matthew Wallingford†, Aditya Sinha⋄, Vivek Ramanujan†, William Howard-Snyder†,
+Kaifeng Chen⋄, Sham Kakade‡, Prateek Jain⋄and Ali Farhadi†
+†University of Washington, ⋄Google Research, ‡Harvard University
+{kusupati,ali}@cs.washington.edu, prajain@google.com
+Abstract
+Learned representations are a central component in modern ML systems, serv-
+ing a multitude of downstream tasks. When training such representations, it
+is often the case that computational and statistical constraints for each down-
+stream task are unknown. In this context, rigid fixed-capacity representations
+can be either over or under-accommodating to the task at hand. This leads us
+to ask: can we design a flexible representation that can ad\n= {12, 24, 48, 96, 192, 384, 768} as
+the explicitly optimized nested dimensions respectively. Lastly, we extensively compare the MRL
+and MRL–E models to independently trained low-dimensional (fixed feature) representations (FF),
+dimensionality reduction (SVD), sub-net method (slimmable networks [100]) and randomly selected
+features of the highest capacity FF model.
+In section 4.2, we evaluate the quality and capacity of the learned representations through linear
+classification/probe (LP) and 1-nearest neighbour (1-NN) accuracy. Experiments show that MRL
+models remove the dependence on |M| resource-intensive independently trained models for the
+coarse-to-fine representations while being as accurate. Lastly, we show that despite optimizing only
+for |M| dimensions, MRL models diffuse the info\n unknown. In this context, rigid fixed-capacity representations
+can be either over or under-accommodating to the task at hand. This leads us
+to ask: can we design a flexible representation that can adapt to multiple down-
+stream tasks with varying computational resources? Our main contribution is
+Matryoshka Representation Learning (MRL) which encodes information at
+different granularities and allows a single embedding to adapt to the computational
+constraints of downstream tasks. MRL minimally modifies existing representation
+learning pipelines and imposes no additional cost during inference and deployment.
+MRL learns coarse-to-fine representations that are at least as accurate and rich as
+independently trained low-dimensional representations. The flexibility within the
+learned Matryoshka \nrXiv preprint arXiv:1911.05248, 2019.
+[37] S. Hooker, N. Moorosi, G. Clark, S. Bengio, and E. Denton. Characterising bias in compressed
+models. arXiv preprint arXiv:2010.03058, 2020.
+[38] H. Hotelling. Analysis of a complex of statistical variables into principal components. Journal
+of educational psychology, 24(6):417, 1933.
+[39] A. G. Howard, M. Zhu, B. Chen, D. Kalenichenko, W. Wang, T. Weyand, M. Andreetto, and
+H. Adam. Mobilenets: Efficient convolutional neural networks for mobile vision applications.
+arXiv preprint arXiv:1704.04861, 2017.
+[40] J. Howard and S. Ruder. Universal language model fine-tuning for text classification. arXiv
+preprint arXiv:1801.06146, 2018.
+[41] H. Hu, D. Dey, M. Hebert, and J. A. Bagnell. Learning anytime predictions in neural networks
+via adaptive loss bal\nxperiments...
+(a) Did you include the code, data, and instructions needed to reproduce the main ex-
+perimental results (either in the supplemental material or as a URL)? [Yes] See sup-
+plemental material and Appendix A. All the code and public models will be open
+sourced.
+(b) Did you specify all the training details (e.g., data splits, hyperparameters, how they
+were chosen)? [Yes] See Section 4 and Appendix C.
+(c) Did you report error bars (e.g., with respect to the random seed after running experi-
+ments multiple times)? [No] We benchmarked on large-scale datasets like ImageNet-
+1K, JFT-300M and ALIGN data with models like ResNet and ViT making it extremely
+expensive to run things multiple times.
+(d) Did you include the total amount of compute and the type of resources used (e.g., type
+of\nd K. Grauman. Fast similarity search for learned metrics. IEEE Transactions
+on Pattern Analysis and Machine Intelligence, 31(12):2143–2157, 2009.
+13
+[53] A. Kusupati, M. Singh, K. Bhatia, A. Kumar, P. Jain, and M. Varma. Fastgrnn: A fast, accurate,
+stable and tiny kilobyte sized gated recurrent neural network. Advances in Neural Information
+Processing Systems, 31, 2018.
+[54] A. Kusupati, V. Ramanujan, R. Somani, M. Wortsman, P. Jain, S. Kakade, and A. Farhadi.
+Soft threshold weight reparameterization for learnable sparsity. In International Conference
+on Machine Learning, pages 5544–5555. PMLR, 2020.
+[55] A. Kusupati, M. Wallingford, V. Ramanujan, R. Somani, J. S. Park, K. Pillutla, P. Jain,
+S. Kakade, and A. Farhadi. Llc: Accurate, multi-purpose learnt low-dimensional binary codes.
+Advanc\nce of MRL model on 31-way classification (1 extra class is for reject token) on
+ImageNet-1K superclasses.
+Rep. Size
+8
+16
+32
+64
+128
+256
+512
+1024
+2048
+MRL
+85.57
+88.67
+89.48
+89.82
+89.97
+90.11
+90.18
+90.22
+90.21
+Matryoshka Representations at Arbitrary Granularities.
+To train MRL, we used nested di-
+mensions at logarithmic granularities M = {8, 16, . . . , 1024, 2048} as detailed in Section 3. We
+made this choice for two empirically-driven reasons: a) The accuracy improvement with increasing
+representation size was more logarithmic than linear (as shown by FF models in Figure 2). This indi-
+cated that optimizing for granularities increasing in a non-logarithmic fashion would be sub-optimal
+both for maximum performance and expected efficiency; b) If we have m arbitrary granularities,
+the expected\nan one: Fast and accurate models via ensembles and cascades. arXiv
+preprint arXiv:2012.01988, 2020.
+[96] M. Wortsman, G. Ilharco, M. Li, J. W. Kim, H. Hajishirzi, A. Farhadi, H. Namkoong, and
+L. Schmidt. Robust fine-tuning of zero-shot models. arXiv preprint arXiv:2109.01903, 2021.
+[97] Z. Wu, Y. Xiong, S. Yu, and D. Lin. Unsupervised feature learning via non-parametric
+instance-level discrimination. arXiv preprint arXiv:1805.01978, 2018.
+[98] J. Yosinski, J. Clune, Y. Bengio, and H. Lipson. How transferable are features in deep neural
+networks? Advances in neural information processing systems, 27, 2014.
+[99] H.-F. Yu, K. Zhong, J. Zhang, W.-C. Chang, and I. S. Dhillon. Pecos: Prediction for enormous
+and correlated output spaces. Journal of Machine Learning Research, 23(98):1–32, 2022.
+[1\n
+These experiments show that MRL seamlessly scales to large-scale models and web-scale datasets
+while providing the otherwise prohibitively expensive multi-granularity in the process. We also
+have similar observations when pretraining BERT; please see Appendix D.2 for more details. Our
+experiments also show that post-hoc compression (SVD), linear probe on random features, and
+sub-net style slimmable networks drastically lose accuracy compared to MRL as the representation
+size decreases. Finally, Figure 5 shows that, while MRL explicitly optimizes O(log(d)) nested
+representations – removing the O(d) dependence [73] –, the coarse-to-fine grained information is
+interpolated across all d dimensions providing highest flexibility for adaptive deployment.
+5
+12
+24
+48
+96
+192
+384
+768
+Representation \n on top of the existing impact of
+representation learning. However, a study on the trade-off between representation size
+and the tendency to encode biases is an interesting future direction along the lines of
+existing literature [36, 37]. A part of this is already presented in Section 5.
+(d) Have you read the ethics review guidelines and ensured that your paper conforms to
+them? [Yes]
+2. If you are including theoretical results...
+(a) Did you state the full set of assumptions of all theoretical results? [N/A]
+(b) Did you include complete proofs of all theoretical results? [N/A]
+3. If you ran experiments...
+(a) Did you include the code, data, and instructions needed to reproduce the main ex-
+perimental results (either in the supplemental material or as a URL)? [Yes] See sup-
+plemental mater\nat optimizing for granularities increasing in a non-logarithmic fashion would be sub-optimal
+both for maximum performance and expected efficiency; b) If we have m arbitrary granularities,
+the expected cost of the linear classifier to train MRL scales as O(L ∗(m2)) while logarithmic
+granularities result in O(L ∗2log(d)) space and compute costs.
+To demonstrate this effect, we learned Matryoshka Representations with uniform (MRL-Uniform)
+nesting dimensions m
+∈
+M
+=
+{8, 212, 416, 620, 824, 1028, 1232, 1436, 1640, 1844, 2048}.
+We
+evaluated
+this
+model
+at
+the
+standard
+(MRL-log)
+dimensions
+m
+∈
+M
+=
+{8, 16, 32, 64, 128, 256, 512, 1024, 2048} for ease of comparison to reported numbers using 1-NN ac-
+curacy (%). As shown in Table 29, we observed that while performance interpolated, MRL-Uniform
+suffered\n, 32, 64, . . . , 2048}}. To improve reliability of threshold
+based greedy policy, we use test time augmentation which has been used successfully in the past [82].
+For inference, we used the remaining held-out 40K samples from the ImageNet-1K validation set. We
+began with smallest sized representation (m = 8) and compared the computed prediction confidence
+p8 to learned optimal threshold t∗
+8. If p8 ≤t∗
+8, then we increased m = 16, and repeated this
+procedure until m = d = 2048. To compute the expected dimensions, we performed early stopping
+at m = {16, 32, 64, . . . 2048} and computed the expectation using the distribution of representation
+sizes. As shown in Table 3 and Figure 6, we observed that in expectation, we only needed a ∼37
+sized representation to achieve 76.3% classification ac\nfitting to experimental setups in recognition? arXiv preprint arXiv:2007.02519,
+2020.
+[93] M. Wallingford, H. Li, A. Achille, A. Ravichandran, C. Fowlkes, R. Bhotika, and S. Soatto.
+Task adaptive parameter sharing for multi-task learning. arXiv preprint arXiv:2203.16708,
+2022.
+[94] H. Wang, S. Ge, Z. Lipton, and E. P. Xing. Learning robust global representations by penalizing
+local predictive power. In Advances in Neural Information Processing Systems, pages 10506–
+10518, 2019.
+[95] X. Wang, D. Kondratyuk, K. M. Kitani, Y. Movshovitz-Attias, and E. Eban. Multiple networks
+are more efficient than one: Fast and accurate models via ensembles and cascades. arXiv
+preprint arXiv:2012.01988, 2020.
+[96] M. Wortsman, G. Ilharco, M. Li, J. W. Kim, H. Hajishirzi, A. Farhadi, H. Namkoong, and
+L. Schmi\nTable 31. We observed that using a larger shortlist k saturated
+ImageNet-1K performance at k=200. But using larger shortlists until k = 2048, the maximum value
+33
+Table 26: Top-1 classification accuracy (%) on ImageNet-1K of various ResNet50 models which
+are finetuned on pretrained FF-2048 model. We observed that adding more non-linearities is able to
+induce nesting to a reasonable extent even if the model was not pretrained with nesting in mind.
+Rep. Size
+fc
+4.2 conv3,
+fc
+4.2 conv2,
+conv3, fc
+4.2 full,
+fc
+All (MRL)
+8
+5.15
+36.11
+54.78
+60.02
+66.63
+16
+13.79
+58.42
+67.26
+70.10
+73.53
+32
+32.52
+67.81
+71.62
+72.84
+75.03
+64
+52.66
+72.42
+73.61
+74.29
+75.82
+128
+64.60
+74.41
+74.67
+75.03
+76.30
+256
+69.29
+75.30
+75.23
+75.38
+76.47
+512
+70.51
+75.96
+75.47
+75.64
+76.65
+1024
+70.19
+76.18
+75.70
+75.75
+76.76
+2048
+69.72
+\nion set. This policy is based on whether the
+prediction confidence pi using representation size mi exceeds a learned threshold t∗
+i . If pi ≥t∗
+i , we
+used predictions from representation size mi otherwise, we increased to representation size mi+1. To
+learn the optimal threshold t∗
+i , we performed a grid search between 0 and 1 (100 samples). For each
+threshold tk, we computed the classification accuracy over our 10K image subset. We set t∗
+i equal
+to the smallest threshold tk that gave the best accuracy. We use this procedure to obtain thresholds
+for successive models, i.e., {t∗
+j | j ∈{8, 16, 32, 64, . . . , 2048}}. To improve reliability of threshold
+based greedy policy, we use test time augmentation which has been used successfully in the past [82].
+For inference, we used the remaining\nodel fine-tuning for text classification. arXiv
+preprint arXiv:1801.06146, 2018.
+[41] H. Hu, D. Dey, M. Hebert, and J. A. Bagnell. Learning anytime predictions in neural networks
+via adaptive loss balancing. In Proceedings of the AAAI Conference on Artificial Intelligence,
+volume 33, pages 3812–3821, 2019.
+[42] P. Indyk and R. Motwani. Approximate nearest neighbors: towards removing the curse
+of dimensionality. In Proceedings of the thirtieth annual ACM symposium on Theory of
+computing, pages 604–613, 1998.
+[43] H. Jain, V. Balasubramanian, B. Chunduri, and M. Varma. Slice: Scalable linear extreme
+classifiers trained on 100 million labels for related searches. In Proceedings of the Twelfth
+ACM International Conference on Web Search and Data Mining, pages 528–536, 2019.
+[44] S. Jayaram Subr\nch
+using hierarchical navigable small world graphs. IEEE transactions on pattern analysis and
+machine intelligence, 42(4):824–836, 2018.
+[63] J. Masci, U. Meier, D. Cire¸san, and J. Schmidhuber. Stacked convolutional auto-encoders for
+hierarchical feature extraction. In International conference on artificial neural networks, pages
+52–59. Springer, 2011.
+[64] P. Mitra, C. Murthy, and S. K. Pal. Unsupervised feature selection using feature similarity.
+IEEE transactions on pattern analysis and machine intelligence, 24(3):301–312, 2002.
+[65] V. Nanda, T. Speicher, J. P. Dickerson, S. Feizi, K. P. Gummadi, and A. Weller. Diffused
+redundancy in pre-trained representations. arXiv preprint arXiv:2306.00183, 2023.
+[66] P. Nayak. Understanding searches better than ever before. Google AI Blog, 2019. \nn artificial intelligence and statistics, pages 297–304. JMLR Workshop and Conference
+Proceedings, 2010.
+[28] M. G. Harris and C. D. Giachritsis. Coarse-grained information dominates fine-grained
+information in judgments of time-to-contact from retinal flow. Vision research, 40(6):601–611,
+2000.
+[29] K. He, X. Zhang, S. Ren, and J. Sun. Deep residual learning for image recognition. In
+Proceedings of the IEEE conference on computer vision and pattern recognition, pages 770–
+778, 2016.
+[30] K. He, H. Fan, Y. Wu, S. Xie, and R. Girshick. Momentum contrast for unsupervised visual
+representation learning. In Proceedings of the IEEE/CVF conference on computer vision and
+pattern recognition, pages 9729–9738, 2020.
+[31] K. He, X. Chen, S. Xie, Y. Li, P. Dollár, and R. Girshick. Masked autoencoders\ne distribution, without sacrificing accuracy on other classes (Table 16 in
+Appendix G). Additionally we find the accuracy between low-dimensional and high-dimensional
+representations is marginal for pretrain classes. We hypothesize that the higher-dimensional represen-
+tations are required to differentiate the classes when few training examples of each are known. This
+results provides further evidence that different tasks require varying capacity based on their difficulty.
+Disagreement across Dimensions.
+The information packing in Matryoshka Representations
+often results in gradual increase of accuracy with increase in capacity. However, we observed that
+8
+(a)
+(b)
+(c)
+Figure 9: Grad-CAM [80] progression of predictions in MRL model across 8, 16, 32 and 2048
+dimensions. (a) 8-dimensional rep\nations of the ACM, 62(11):44–45, 2019.
+15
+[90] P. Viola and M. Jones. Rapid object detection using a boosted cascade of simple features. In
+Proceedings of the 2001 IEEE computer society conference on computer vision and pattern
+recognition. CVPR 2001, volume 1, pages I–I. Ieee, 2001.
+[91] C. Waldburger. As search needs evolve, microsoft makes ai tools for better search available
+to researchers and developers. Microsoft AI Blog, 2019. URL https://blogs.microsoft.
+com/ai/bing-vector-search/.
+[92] M. Wallingford, A. Kusupati, K. Alizadeh-Vahid, A. Walsman, A. Kembhavi, and A. Farhadi.
+Are we overfitting to experimental setups in recognition? arXiv preprint arXiv:2007.02519,
+2020.
+[93] M. Wallingford, H. Li, A. Achille, A. Ravichandran, C. Fowlkes, R. Bhotika, and S. Soatto.
+Task adaptive para\nirst m dimensions of FF-2048 for NN lookup, and 2) FF+SVD: performing SVD
+on the FF-2048 representations at the specified representation size, 3) FF+JL: performing random
+projection according to the Johnson-Lindenstrauss lemma [48] on the FF-2048 representations at
+the specified representation size. We also compared against the 1-NN accuracy of slimmable neural
+nets [100] as an additional baseline. We observed these baseline models to perform very poorly at
+lower dimensions, as they were not explicitly trained to learn Matryoshka Representations.
+Table 2: 1-NN accuracy (%) on ImageNet-1K for various ResNet50 models.
+Rep. Size
+Rand. FS
+SVD
+JL
+FF
+Slimmable
+MRL
+MRL–E
+8
+2.36
+19.14
+0.11
+58.93
+1.00
+62.19
+57.45
+16
+12.06
+46.02
+0.09
+66.77
+5.12
+67.91
+67.05
+32
+32.91
+60.78
+0.06
+68.84
+16.95
+69.46
+68.6
+\nrs.
+We also found that for both MRL and FF, as the shot number decreased, the required representa-
+tion size to reach optimal accuracy decreased (Table 15). For example, we observed that 1-shot
+performance at 32 representation size had equal accuracy to 2048 representation size.
+FLUID.
+For the long-tailed setting we evaluated MRL on the FLUID benchmark [92] which
+contains a mixture of pretrain and new classes. Table 16 shows the evaluation of the learned
+representation on FLUID. We observed that MRL provided up to 2% higher accuracy on novel
+classes in the tail of the distribution, without sacrificing accuracy on other classes. Additionally we
+found the accuracy between low-dimensional and high-dimensional representations was marginal for
+pretrain classes. For example, the 64-dimensional M\nhoice learning for training diverse deep ensembles. Advances in Neural
+Information Processing Systems, 29, 2016.
+[59] C. Li, H. Farkhoor, R. Liu, and J. Yosinski. Measuring the intrinsic dimension of objective
+landscapes. arXiv preprint arXiv:1804.08838, 2018.
+[60] Y. Linde, A. Buzo, and R. Gray. An algorithm for vector quantizer design. IEEE Transactions
+on communications, 28(1):84–95, 1980.
+[61] I. Loshchilov and F. Hutter.
+Decoupled weight decay regularization.
+arXiv preprint
+arXiv:1711.05101, 2017.
+[62] Y. A. Malkov and D. A. Yashunin. Efficient and robust approximate nearest neighbor search
+using hierarchical navigable small world graphs. IEEE transactions on pattern analysis and
+machine intelligence, 42(4):824–836, 2018.
+[63] J. Masci, U. Meier, D. Cire¸san, and J. Schmidhuber. Stack\n000-way classification layer of FF-2048,
+with rank = 1000.
+• Rand. LP: We compared against a linear classifier fit on randomly selected features [30].
+• Slim. Net: We take pretrained slimmable neural networks [100] which are trained with a flexible
+width backbone (25%, 50%, 75% and full width). For each representation size, we consider the
+first k dimensions for classification. Note that training of slimmable neural networks becomes
+unstable when trained below 25% width due to the hardness in optimization and low complexity of
+the model.
+At lower dimensions ( d ≤128), MRL outperforms all baselines significantly, which indicates that
+pretrained models lack the multifidelity of Matryoshka Representations and are incapable of fitting
+an accurate linear classifier at low representation sizes.
+\n due to the inductive bias of gradient-based training [84], deep learning models tend to diffuse
+“information” across the entire representation vector. The desired elasticity is usually enabled in the
+existing flat and fixed representations either through training multiple low-dimensional models [29],
+jointly optimizing sub-networks of varying capacity [9, 100] or post-hoc compression [38, 60]. Each
+of these techniques struggle to meet the requirements for adaptive large-scale deployment either
+∗Equal contribution – AK led the project with extensive support from GB and AR for experimentation.
+36th Conference on Neural Information Processing Systems (NeurIPS 2022).
+arXiv:2205.13147v4  [cs.LG]  8 Feb 2024
+due to training/maintenance overhead, numerous expensive forward passes through all of \n) utilization
+of the representation for downstream applications [50, 89]. Compute costs for the latter part of the
+pipeline scale with the embedding dimensionality as well as the data size (N) and label space (L).
+At web-scale [15, 85] this utilization cost overshadows the feature computation cost. The rigidity in
+these representations forces the use of high-dimensional embedding vectors across multiple tasks
+despite the varying resource and accuracy constraints that require flexibility.
+Human perception of the natural world has a naturally coarse-to-fine granularity [28, 32]. However,
+perhaps due to the inductive bias of gradient-based training [84], deep learning models tend to diffuse
+“information” across the entire representation vector. The desired elasticity is usually enabled in the\nng, pages 1597–1607.
+PMLR, 2020.
+[13] Y. Chen, Z. Liu, H. Xu, T. Darrell, and X. Wang. Meta-baseline: exploring simple meta-
+learning for few-shot learning. In Proceedings of the IEEE/CVF International Conference on
+Computer Vision, pages 9062–9071, 2021.
+[14] M. Datar, N. Immorlica, P. Indyk, and V. S. Mirrokni. Locality-sensitive hashing scheme based
+on p-stable distributions. In Proceedings of the twentieth annual symposium on Computational
+geometry, pages 253–262, 2004.
+[15] J. Dean. Challenges in building large-scale information retrieval systems. In Keynote of the
+2nd ACM International Conference on Web Search and Data Mining (WSDM), volume 10,
+2009.
+[16] J. Deng, W. Dong, R. Socher, L.-J. Li, K. Li, and L. Fei-Fei. Imagenet: A large-scale
+hierarchical image database. In 2009 IEEE co\nithin the same larger network. However, the weights for each progressively smaller
+network can be different and often require distinct forward passes to isolate the final representations.
+This is detrimental for adaptive inference due to the need for re-encoding the entire retrieval database
+with expensive sub-net forward passes of varying capacities. Several works [23, 26, 65, 59] investigate
+the notions of intrinsic dimensionality and redundancy of representations and objective spaces pointing
+to minimum description length [74]. Finally, ordered representations proposed by Rippel et al. [73]
+use nested dropout in the context of autoencoders to learn nested representations. MRL differentiates
+itself in formulation by optimizing only for O(log(d)) nesting dimensions instead of O(d). Despit\ne high yet constant deep featurization costs or the search cost which
+scales with the size of the label space and data. Efficient neural networks address the first issue
+through a variety of algorithms [25, 54] and design choices [39, 53, 87]. However, with a strong
+featurizer, most of the issues with scale are due to the linear dependence on number of labels (L), size
+of the data (N) and representation size (d), stressing RAM, disk and processor all at the same time.
+The sub-linear complexity dependence on number of labels has been well studied in context of
+compute [3, 43, 69] and memory [20] using Approximate Nearest Neighbor Search (ANNS) [62] or
+leveraging the underlying hierarchy [17, 55]. In case of the representation size, often dimensionality
+reduction [77, 88], hashing techniques\nion size for MRL &
+FF models showing the capture of underlying
+hierarchy through tight information bottlenecks.
+8
+16
+32
+64
+128
+256
+512
+1024
+2048
+Representation Size
+65
+70
+75
+80
+85
+90
+95
+Top-1 Accuracy (%)
+measuring device
+building
+garment
+tool
+nourishment
+protective covering
+vessel
+oscine
+Figure 11:
+Diverse per-superclass accuracy
+trends across representation sizes for ResNet50-
+MRL on ImageNet-1K.
+9
+occurs with both MRL and FF models; MRL is more accurate across dimensions. This shows that
+tight information bottlenecks while not highly accurate for fine-grained classification, do capture
+required semantic information for coarser classification that could be leveraged for adaptive routing
+for retrieval and classification. Mutifidelity of Matryoshka Representation naturally captures the
+und\n
+403
+26.25
+49.32
+59.48
+14.15
+11.00
+9.15
+7.61
+20.55
+18.36
+16.78
+15.17
+192
+807
+27.94
+51.32
+61.32
+15.29
+11.89
+9.88
+8.18
+21.86
+19.46
+17.71
+15.96
+384
+1614
+29.03
+52.53
+62.45
+15.99
+12.46
+10.35
+8.56
+22.64
+20.14
+18.29
+16.47
+768
+3227
+29.87
+53.36
+63.13
+16.54
+12.90
+10.71
+8.85
+23.23
+20.67
+18.75
+16.85
+1536
+6454
+30.52
+54.02
+63.79
+16.99
+13.27
+11.01
+9.08
+23.73
+21.09
+19.12
+17.16
+large-scale (1000-way) setting. We evaluate for n ∈1, 3, 5, 7, 9 with 9 being the maximum value for
+n because there are 10 images per class.
+We observed that MRL had equal performance to FF across all representation sizes and shot numbers.
+We also found that for both MRL and FF, as the shot number decreased, the required representa-
+tion size to reach optimal accuracy decreased (Table 15). For example, we observed that 1-shot
+perfor\nth a fraction of the MFLOPs.
+G
+Few-shot and Sample Efficiency
+We compared MRL, MRL–E, and FF on various benchmarks to observe the effect of representation
+size on sample efficiency. We used Nearest Class Means [79] for classification which has been shown
+to be effective in the few-shot regime [13].
+ImageNetV2.
+Representations are evaluated on ImageNetV2 with the n-shot k-way setup. Ima-
+geNetV2 is a dataset traditionally used to evaluate the robustness of models to natural distribution
+shifts. For our experiments we evaluate accuracy of the model given n examples from the Ima-
+geNetV2 distribution. We benchmark representations in the traditional small-scale (10-way) and
+25
+Table 9: Retrieve a shortlist of 200-NN with Ds sized representations on ImageNetV2 via exact
+search with L2 distance \nBoden, A. Borchers, et al. In-datacenter performance analysis of a tensor processing unit.
+In Proceedings of the 44th annual international symposium on computer architecture, pages
+1–12, 2017.
+[50] T. C. Kaz Sato.
+Vertex ai matching engine.
+Microsoft AI Blog, 2021.
+URL
+https://cloud.google.com/blog/topics/developers-practitioners/
+find-anything-blazingly-fast-googles-vector-search-technology.
+[51] A. Krizhevsky, I. Sutskever, and G. E. Hinton. Imagenet classification with deep convolutional
+neural networks. Advances in neural information processing systems, 25, 2012.
+[52] B. Kulis, P. Jain, and K. Grauman. Fast similarity search for learned metrics. IEEE Transactions
+on Pattern Analysis and Machine Intelligence, 31(12):2143–2157, 2009.
+13
+[53] A. Kusupati, M. Singh, K. Bhatia, A. Kumar, P.\nguage applications are built [40] on large language models [8] that are pretrained [68, 75]
+in a un/self-supervised fashion with masked language modelling [19] or autoregressive training [70].
+Matryoshka Representation Learning (MRL) is complementary to all these setups and can be
+adapted with minimal overhead (Section 3). MRL equips representations with multifidelity at no
+additional cost which enables adaptive deployment based on the data and task (Section 4).
+Efficient Classification and Retrieval.
+Efficiency in classification and retrieval during inference
+can be studied with respect to the high yet constant deep featurization costs or the search cost which
+scales with the size of the label space and data. Efficient neural networks address the first issue
+through a variety of algorithm\ne, and L. Zettlemoyer.
+Deep contextualized word representations. In Proceedings of the 2018 Conference of the
+North American Chapter of the Association for Computational Linguistics: Human Language
+Technologies, Volume 1 (Long Papers), pages 2227–2237, New Orleans, Louisiana, June
+2018. Association for Computational Linguistics. doi: 10.18653/v1/N18-1202. URL https:
+//aclanthology.org/N18-1202.
+[69] Y. Prabhu, A. Kusupati, N. Gupta, and M. Varma. Extreme regression for dynamic search
+advertising. In Proceedings of the 13th International Conference on Web Search and Data
+Mining, pages 456–464, 2020.
+[70] A. Radford, K. Narasimhan, T. Salimans, and I. Sutskever. Improving language understand-
+ing by generative pre-training. OpenAI Blog, 2018. URL https://openai.com/blog/
+language-unsupervise\nrmance of ResNet50 representations on ImageNet-1K across
+dimensionalities for MRL, MRL–E, FF, slimmable networks along with post-hoc compression
+of vectors using SVD and random feature selection. Matryoshka Representations are often the
+most accurate while being up to 3% better than the FF baselines. Similar to classification, post-hoc
+compression and slimmable network baselines suffer from significant drop-off in retrieval mAP@10
+with ≤256 dimensions. Appendix E discusses the mAP@10 of the same models on ImageNet-4K.
+MRL models are capable of performing accurate retrieval at various granularities without the
+additional expense of multiple model forward passes for the web-scale databases. FF models
+also generate independent databases which become prohibitively expense to store and switch i\n36th Conference on Neural Information Processing Systems (NeurIPS 2022).
+arXiv:2205.13147v4  [cs.LG]  8 Feb 2024
+due to training/maintenance overhead, numerous expensive forward passes through all of the data,
+storage and memory cost for multiple copies of encoded data, expensive on-the-fly feature selection
+or a significant drop in accuracy. By encoding coarse-to-fine-grained representations, which are as
+accurate as the independently trained counterparts, we learn with minimal overhead a representation
+that can be deployed adaptively at no additional cost during inference.
+We introduce
+Matryoshka Representation Learning (MRL) to induce flexibility in the learned
+representation. MRL learns representations of varying capacities within the same high-dimensional
+vector through explicit optim\n, and signif-
+icantly for lower ones. This demonstrates that training to learn Matryoshka Representations
+is feasible and extendable even for extremely large scale datasets.
+We also demonstrate that
+Matryoshka Representations are learned at interpolated dimensions for both ALIGN and JFT-
+ViT, as shown in Table 5, despite not being trained explicitly at these dimensions. Lastly, Table 6
+shows that MRL training leads to a increase in the cosine similarity span between positive and
+random image-text pairs.
+We also evaluated the capability of Matryoshka Representations to extend to other natural language
+processing via masked language modeling (MLM) with BERT [19], whose results are tabulated
+in Table 7. Without any hyper-parameter tuning, we observed Matryoshka Representations to be
+within 0.\n are within 0.1% of the maximum value achievable without reranking on MRL representations,
+as seen in Table 10, are bolded.
+Shortlist Length = 200
+Ds
+Dr
+MFLOPs
+Top-1
+mAP@10
+mAP@25
+mAP@50
+mAP@100
+P@10
+P@25
+P@50
+P@100
+8
+16
+34
+16.84
+8.70
+6.88
+5.88
+5.08
+13.86
+12.80
+11.98
+11.10
+32
+20.73
+10.66
+8.19
+6.77
+5.61
+16.18
+14.39
+13.02
+11.61
+64
+23.11
+11.91
+9.03
+7.36
+6.00
+17.56
+15.34
+13.67
+11.99
+128
+24.63
+12.71
+9.59
+7.76
+6.25
+18.42
+15.94
+14.08
+12.22
+256
+25.5
+13.24
+9.96
+8.03
+6.42
+19.00
+16.35
+14.36
+12.37
+512
+26.07
+13.59
+10.21
+8.20
+6.53
+19.37
+16.62
+14.54
+12.46
+1024
+26.52
+13.85
+10.40
+8.34
+6.61
+19.65
+16.80
+14.68
+12.53
+2048
+26.94
+14.11
+10.57
+8.45
+6.68
+19.92
+16.98
+14.79
+12.58
+16
+32
+67
+21.44
+11.24
+8.72
+7.26
+6.02
+17.02
+15.30
+13.92
+12.41
+64
+24.36
+12.78
+9.75
+7.96
+6.43
+18.72
+16.41
+14.63
+12.74
+128
+26.08
+13.70
+10.39
+8.3\nYang, Y. Xia, Y.-T. Chen, Z. Parekh, H. Pham, Q. Le, Y.-H. Sung, Z. Li, and T. Duerig.
+Scaling up visual and vision-language representation learning with noisy text supervision. In
+International Conference on Machine Learning, pages 4904–4916. PMLR, 2021.
+[47] J. Johnson, M. Douze, and H. Jégou. Billion-scale similarity search with GPUs. IEEE
+Transactions on Big Data, 7(3):535–547, 2019.
+[48] W. B. Johnson. Extensions of lipschitz mappings into a hilbert space. Contemp. Math., 26:
+189–206, 1984.
+[49] N. P. Jouppi, C. Young, N. Patil, D. Patterson, G. Agrawal, R. Bajwa, S. Bates, S. Bhatia,
+N. Boden, A. Borchers, et al. In-datacenter performance analysis of a tensor processing unit.
+In Proceedings of the 44th annual international symposium on computer architecture, pages
+1–12, 2017.
+[50] T.\n, 2020.
+[55] A. Kusupati, M. Wallingford, V. Ramanujan, R. Somani, J. S. Park, K. Pillutla, P. Jain,
+S. Kakade, and A. Farhadi. Llc: Accurate, multi-purpose learnt low-dimensional binary codes.
+Advances in Neural Information Processing Systems, 34, 2021.
+[56] G. Leclerc, A. Ilyas, L. Engstrom, S. M. Park, H. Salman, and A. Madry. ffcv. https:
+//github.com/libffcv/ffcv/, 2022. commit 607d117.
+[57] Y. LeCun, Y. Bengio, and G. Hinton. Deep learning. nature, 521(7553):436–444, 2015.
+[58] S. Lee, S. Purushwalkam Shiva Prakash, M. Cogswell, V. Ranjan, D. Crandall, and D. Batra.
+Stochastic multiple choice learning for training diverse deep ensembles. Advances in Neural
+Information Processing Systems, 29, 2016.
+[59] C. Li, H. Farkhoor, R. Liu, and J. Yosinski. Measuring the intrinsic dimension of \n16, 32, 64, 128, 256, 512, 1024, 2048} for ease of comparison to reported numbers using 1-NN ac-
+curacy (%). As shown in Table 29, we observed that while performance interpolated, MRL-Uniform
+suffered at low dimensions as the logarithmic spacing of MRL-log resulted in tighter packing of
+information in these initial dimensions. The higher nesting dimensions of MRL-Uniform did not
+help in significant accuracy improvement due to accuracy saturation, which is often logarithmic in
+representation size as shown by FF models. Note that the slight improvement at dimensions higher
+than 512 for MRL-Uniform is due to multiple granularities around them compared to just three for
+MRL-log, which are not useful in practice for efficiency.
+Lower Dimensionality.
+We experimented with training MRL with smalle\nnts.
+Acknowledgments
+We are grateful to Srinadh Bhojanapalli, Lovish Madaan, Raghav Somani, Ludwig Schmidt, and
+Venkata Sailesh Sanampudi for helpful discussions and feedback. Aditya Kusupati also thanks Tom
+Duerig and Rahul Sukthankar for their support. Part of the paper’s large-scale experimentation is
+supported through a research GCP credit award from Google Cloud and Google Research. Gantavya
+Bhatt is supported in part by the CONIX Research Center, one of six centers in JUMP, a Semicon-
+ductor Research Corporation (SRC) program sponsored by DARPA. Sham Kakade acknowledges
+funding from the NSF award CCF-1703574 and ONR N00014-22-1-2377. Ali Farhadi acknowledges
+funding from the NSF awards IIS 1652052, IIS 17303166, DARPA N66001-19-2-4031, DARPA
+W911NF-15-1-0543 and gifts from Allen Inst\nConference on Machine Learning, pages 5389–5400. PMLR,
+2019.
+[73] O. Rippel, M. Gelbart, and R. Adams. Learning ordered representations with nested dropout.
+In International Conference on Machine Learning, pages 1746–1754. PMLR, 2014.
+[74] J. Rissanen. Modeling by shortest data description. Automatica, 14(5):465–471, 1978.
+[75] S. Ruder, M. E. Peters, S. Swayamdipta, and T. Wolf. Transfer learning in natural language
+processing. In Proceedings of the 2019 conference of the North American chapter of the
+association for computational linguistics: Tutorials, pages 15–18, 2019.
+[76] O. Russakovsky, J. Deng, H. Su, J. Krause, S. Satheesh, S. Ma, Z. Huang, A. Karpathy,
+A. Khosla, M. Bernstein, et al. Imagenet large scale visual recognition challenge. International
+journal of computer vision, 115\nines significantly, which indicates that
+pretrained models lack the multifidelity of Matryoshka Representations and are incapable of fitting
+an accurate linear classifier at low representation sizes.
+We compared the performance of MRL models at various representation sizes via 1-nearest neighbors
+(1-NN) image classification accuracy on ImageNet-1K in Table 2 and Figure 3. We provide detailed
+information regarding the k-NN search pipeline in Appendix E. We compared against a baseline
+of attempting to enforce nesting to a FF-2048 model by 1) Random Feature Selection (Rand. FS):
+considering the first m dimensions of FF-2048 for NN lookup, and 2) FF+SVD: performing SVD
+on the FF-2048 representations at the specified representation size, 3) FF+JL: performing random
+projection according to the J\n,
+(1)
+where L: RL × [L] →R+ is the multi-class softmax cross-entropy loss function. This is a standard
+optimization problem that can be solved using sub-gradient descent methods. We set all the impor-
+tance scales, cm = 1 for all m ∈M; see Section 5 for ablations. Lastly, despite only optimizing
+for O(log(d)) nested dimensions, MRL results in accurate representations, that interpolate, for
+dimensions that fall between the chosen granularity of the representations (Section 4.2).
+We call this formulation as Matryoshka Representation Learning (MRL). A natural way to make
+this efficient is through weight-tying across all the linear classifiers, i.e., by defining W(m) = W1:m
+for a set of common weights W ∈RL×d. This would reduce the memory cost due to the linear
+classifiers by almost half, whic\nn such scenarios, we
+observed that smaller representation size models would often get confused due to other objects and fail
+to extract the object of interest which generated the correct label. We also observed a different nature
+31
+Figure 12: Progression of relative per-class accuracy vs MRL-2048. As the dimensionality increases,
+the spread shrinks while the class marked (x) (Madagascar cat) loses accuracy.
+Table 22: Percentage of ImageNet-1K validation set that is first correctly predicted using each
+representation size d. We note that 18.46% of the samples cannot be correctly predicted by any
+representation size. The remaining 81.54% constitutes the oracle accuracy.
+Rep. Size
+8
+16
+32
+64
+128
+256
+512
+1024
+2048
+Always
+Wrong
+Correctly
+Predicted
+67.46
+8.78
+2.58
+1.35
+0.64
+0.31
+0.20
+0.12
+0.06
+\nreme
+classifiers trained on 100 million labels for related searches. In Proceedings of the Twelfth
+ACM International Conference on Web Search and Data Mining, pages 528–536, 2019.
+[44] S. Jayaram Subramanya, F. Devvrit, H. V. Simhadri, R. Krishnawamy, and R. Kadekodi.
+Diskann: Fast accurate billion-point nearest neighbor search on a single node. Advances in
+Neural Information Processing Systems, 32, 2019.
+[45] H. Jegou, M. Douze, and C. Schmid. Product quantization for nearest neighbor search. IEEE
+transactions on pattern analysis and machine intelligence, 33(1):117–128, 2010.
+[46] C. Jia, Y. Yang, Y. Xia, Y.-T. Chen, Z. Parekh, H. Pham, Q. Le, Y.-H. Sung, Z. Li, and T. Duerig.
+Scaling up visual and vision-language representation learning with noisy text supervision. In
+International Confe\n results in Section 5.1 reveal interesting weaknesses of MRL that would be logical directions
+for future work. (1) Optimizing the weightings of the nested losses to obtain a Pareto optimal
+accuracy-vs-efficiency trade-off – a potential solution could emerge from adaptive loss balancing
+aspects of anytime neural networks [41]. (2) Using different losses at various fidelities aimed at
+solving a specific aspect of adaptive deployment – e.g. high recall for 8-dimension and robustness
+for 2048-dimension. (3) Learning a search data-structure, like differentiable k-d tree, on top of
+Matryoshka Representation to enable dataset and representation aware retrieval. (4) Finally, the
+joint optimization of multi-objective MRL combined with end-to-end learnable search data-structure
+to have data-driven a\n Appendix C ablate over the choice of initial granularity and spacing of the
+granularites. Table 28 reaffirms the design choice to shun extremely low dimensions that have poor
+classification accuracy as initial granularity for MRL while Table 29 confirms the effectiveness of
+logarthmic granularity spacing inspired from the behaviour of accuracy saturation across dimensions
+over uniform. Lastly, Tables 30 and 31 in Appendix K.2 show that the retrieval performance saturates
+after a certain shortlist dimension and length depending on the complexity of the dataset.
+6
+Discussion and Conclusions
+The results in Section 5.1 reveal interesting weaknesses of MRL that would be logical directions
+for future work. (1) Optimizing the weightings of the nested losses to obtain a Pareto optimal
+accuracy-vs\ncomputer vision,
+pages 843–852, 2017.
+[86] I. Sutskever, J. Martens, G. Dahl, and G. Hinton. On the importance of initialization and
+momentum in deep learning. In International conference on machine learning, pages 1139–
+1147. PMLR, 2013.
+[87] M. Tan and Q. Le. Efficientnet: Rethinking model scaling for convolutional neural networks.
+In International conference on machine learning, pages 6105–6114. PMLR, 2019.
+[88] L. Van Der Maaten, E. Postma, J. Van den Herik, et al. Dimensionality reduction: a comparative.
+J Mach Learn Res, 10(66-71):13, 2009.
+[89] M. Varma. Extreme classification. Communications of the ACM, 62(11):44–45, 2019.
+15
+[90] P. Viola and M. Jones. Rapid object detection using a boosted cascade of simple features. In
+Proceedings of the 2001 IEEE computer society conference on \narning. In Proceedings of the IEEE/CVF conference on computer vision and
+pattern recognition, pages 9729–9738, 2020.
+[31] K. He, X. Chen, S. Xie, Y. Li, P. Dollár, and R. Girshick. Masked autoencoders are scalable
+vision learners. arXiv preprint arXiv:2111.06377, 2021.
+[32] J. Hegdé. Time course of visual perception: coarse-to-fine processing and beyond. Progress in
+neurobiology, 84(4):405–439, 2008.
+[33] D. Hendrycks and K. Gimpel. A baseline for detecting misclassified and out-of-distribution
+examples in neural networks. arXiv preprint arXiv:1610.02136, 2016.
+[34] D. Hendrycks, S. Basart, N. Mu, S. Kadavath, F. Wang, E. Dorundo, R. Desai, T. Zhu,
+S. Parajuli, M. Guo, et al. The many faces of robustness: A critical analysis of out-of-
+distribution generalization. In Proceedings of the IEE\nand ALIGN data with models like ResNet and ViT making it extremely
+expensive to run things multiple times.
+(d) Did you include the total amount of compute and the type of resources used (e.g., type
+of GPUs, internal cluster, or cloud provider)? [Yes] See Appendix C and Appendix I.
+4. If you are using existing assets (e.g., code, data, models) or curating/releasing new assets...
+(a) If your work uses existing assets, did you cite the creators? [Yes]
+(b) Did you mention the license of the assets? [No] All the non-proprietary datasets and
+code used are public under MIT, BSD or CC licenses.
+(c) Did you include any new assets either in the supplemental material or as a URL? [Yes]
+We created a new subset of ImageNet-21K for downstream evaluation of retrieval
+performance at scale. See Section 4.3\nAppendix J put forward the potential for MRL
+to be a systematic framework for analyzing the utility and efficiency of information bottlenecks.
+Superclass Accuracy.
+As the information bottleneck becomes smaller, the overall accuracy on
+fine-grained classes decreases rapidly (Figure 3). However, the drop-off is not as significant when
+evaluated at a superclass level (Table 24 in Appendix J). Figure 10 presents that this phenomenon
+8
+16
+32
+64
+128
+256
+512
+1024
+2048
+Representation Size
+84
+86
+88
+90
+Top-1 Accuracy (%)
+MRL
+FF
+Figure 10: 31-way ImageNet-1K superclass clas-
+sification across representation size for MRL &
+FF models showing the capture of underlying
+hierarchy through tight information bottlenecks.
+8
+16
+32
+64
+128
+256
+512
+1024
+2048
+Representation Size
+65
+70
+75
+80
+85
+90
+95
+Top-1 Accuracy\n
